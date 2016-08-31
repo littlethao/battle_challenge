@@ -13,7 +13,7 @@ describe Player do
   end
 
   it "reduces the player/'s hitpoint by 10 following attack" do
-    player.attack
+    player.receive_damage
     expect(player.hitpoint).to eq 90
   end
 end

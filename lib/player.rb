@@ -13,7 +13,7 @@ class Player
     @hitpoint
   end
 
-  def attack
+  def receive_damage
     @hitpoint -= 10
   end
 
