@@ -5,5 +5,5 @@
   <input type='submit' value="attack">
 </form>
 <%if @attack%>
-<%='You just hit Player2'%>
+<%="You just hit #{$game.current_turn.name}"%>
 <%end%>

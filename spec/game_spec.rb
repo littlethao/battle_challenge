@@ -7,8 +7,8 @@ describe Game do
   let(:person2) {double(:person2, receive_damage: true)}
 
   it 'tells person to receive damage' do
-    expect(person1).to receive(:receive_damage)
-    game.attack(person1)
+    expect(person2).to receive(:receive_damage)
+    game.attack
   end
 
   it 'knows which players turn it is' do
@@ -16,7 +16,7 @@ describe Game do
   end
 
   it 'can switch turns' do
-    game.attack(person1)
+    game.attack
     expect(game.current_turn).to eq person2
   end
 end

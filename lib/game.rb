@@ -13,8 +13,8 @@ class Game
     @players.last
   end
 
-  def attack(player)
-    player.receive_damage
+  def attack
+    other_player.receive_damage
     switch_turns
   end
 
@@ -26,6 +26,10 @@ class Game
 
   def switch_turns
     @current_turn = @players.select{|player| player != @current_turn}.pop
+  end
+
+  def other_player
+    @players.select{|player| player != @current_turn}.pop
   end
 
 end
