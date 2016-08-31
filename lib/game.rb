@@ -3,6 +3,7 @@ class Game
   def initialize(player1, player2)
     @players = [player1, player2]
     @current_turn = player1
+    @over = false
   end
 
   def player1
@@ -15,11 +16,16 @@ class Game
 
   def attack
     other_player.receive_damage
+    @over = true if check_hp
     switch_turns
   end
 
   def current_turn
     @current_turn
+  end
+
+  def over?
+    @over
   end
 
   private
@@ -30,6 +36,10 @@ class Game
 
   def other_player
     @players.select{|player| player != @current_turn}.pop
+  end
+
+  def check_hp
+    other_player.dead?
   end
 
 end

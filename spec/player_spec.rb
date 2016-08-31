@@ -16,4 +16,9 @@ describe Player do
     player.receive_damage
     expect(player.hitpoint).to eq 90
   end
+
+  it 'returns dead if hp == 0' do
+    10.times{player.receive_damage}
+    expect(player.dead?).to eq true
+  end
 end
