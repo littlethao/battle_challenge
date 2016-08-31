@@ -1,5 +1,5 @@
 <%="Hello #{$player1.name} & #{$player2.name}"%>
-<%="Player1:#{@player1hp}hp&Player2:#{@player2hp}hp"%>
+<%="Player1:#{$player1.hitpoint}hp&Player2:#{$player2.hitpoint}hp"%>
 <form action="/attack" method="post">
   <input type='submit' value="attack">
 </form>

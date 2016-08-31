@@ -9,8 +9,6 @@ class Battle < Sinatra::Base
   end
 
   get '/play' do
-    @player1hp = 100
-    @player2hp = 100
     @attack = session[:attack]
     erb(:play)
   end
@@ -23,6 +21,7 @@ class Battle < Sinatra::Base
 
   post '/attack' do
     session[:attack] = true
+    $player2.attack
     redirect to('play')
   end
 

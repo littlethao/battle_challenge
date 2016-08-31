@@ -7,4 +7,10 @@ RSpec.feature 'attacks player 2' do
     click_button('attack')
     expect(page).to have_content "You just hit Player2"
   end
+
+  scenario 'hitpoint of player 2 has dropped by 10' do
+    sign_in_and_play
+    click_button('attack')
+    expect(page).to have_content "Player1:100hp&Player2:90hp"
+  end
 end
