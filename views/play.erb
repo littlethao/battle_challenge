@@ -1,5 +1,6 @@
 <%="Hello #{$game.player1.name} & #{$game.player2.name}"%>
 <%="Player1:#{$game.player1.hitpoint}hp&Player2:#{$game.player2.hitpoint}hp"%>
+<%= "#{$game.current_turn.name}'s Turn" %>
 <form action="/attack" method="post">
   <input type='submit' value="attack">
 </form>
