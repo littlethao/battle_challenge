@@ -1,2 +1,8 @@
 <%="Hello #{@player1} & #{@player2}"%>
 <%="Player1:#{@player1hp}hp&Player2:#{@player2hp}hp"%>
+<form action="/attack" method="post">
+  <input type='submit' value="attack">
+</form>
+<%if @attack%>
+<%='You just hit Player2'%>
+<%end%>
