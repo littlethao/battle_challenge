@@ -23,7 +23,7 @@ class Battle < Sinatra::Base
   post '/attack' do
     session[:attack] = true
     $game.attack
-    $game.over
+    $game.over?
     redirect to('play')
   end
 
