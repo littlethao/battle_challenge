@@ -19,6 +19,7 @@ attr_reader :current_player
 
   def attack(player)
     player.receive_damage
+    switch_turn
   end
 
   def switch_turn
