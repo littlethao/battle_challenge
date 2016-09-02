@@ -33,12 +33,22 @@ let (:player2) { double :player2, receive_damage: true }
     it 'initially opponent should be player 2' do
       expect(game.opponent).to eq player2
     end
-    
+
     context 'post attack' do
       it 'should have opponent as player 1' do
         game.attack
         expect(game.opponent).to eq player1
       end
+    end
+  end
+
+  describe '#game_over?' do
+    before do
+      allow(player1).to receive(:lost_game?).and_return(true)
+      allow(player2).to receive(:lost_game?).and_return(false)
+    end
+    it 'to be true if either player has lost' do
+      expect(game.game_over?).to eq true
     end
   end
 end

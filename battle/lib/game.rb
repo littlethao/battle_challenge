@@ -27,4 +27,8 @@ attr_reader :current_player, :opponent
     @current_player = @players.select{|player| player != @current_player}.pop
     @opponent = @players.select{|player| player != @opponent}.pop
   end
+
+  def game_over?
+    player_1.lost_game? || player_2.lost_game?
+  end
 end
