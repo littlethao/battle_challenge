@@ -6,9 +6,9 @@ let (:player1) { double :player1, receive_damage: true }
 let (:player2) { double :player2, receive_damage: true }
 
   describe '#attack' do
-    it 'damages player 2' do
+    it 'damages player 2 i.e. opponent' do
       expect(player2).to receive(:receive_damage)
-      game.attack(player2)
+      game.attack
     end
   end
 
@@ -26,6 +26,18 @@ let (:player2) { double :player2, receive_damage: true }
       game.switch_turn
       game.switch_turn
       expect(game.current_player).to eq player1
+    end
+  end
+
+  describe '#opponent' do
+    it 'initially opponent should be player 2' do
+      expect(game.opponent).to eq player2
+    end
+    context 'post attack' do
+      it 'should have opponent as player 1' do
+        game.attack
+        expect(game.opponent).to eq player1
+      end
     end
   end
 end
