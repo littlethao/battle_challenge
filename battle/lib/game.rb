@@ -1,3 +1,5 @@
+require_relative 'player'
+
 class Game
 
 attr_reader :current_player

@@ -8,17 +8,6 @@ class Battle < Sinatra::Base
     erb :index
   end
 
-enable :sessions
-
-  get '/play' do
-    # @player_1 = $player_1.name
-    # @player_2 = $player_2.name
-    # @player_1_hp = $player_1.hitpoint
-    # @player_2_hp = $player_2.hitpoint
-    @game = $game
-    erb :play
-  end
-
   post '/names' do
     player_1 = Player.new(params[:player_1])
     player_2 = Player.new(params[:player_2])
@@ -26,9 +15,12 @@ enable :sessions
     redirect '/play'
   end
 
+  get '/play' do
+    @game = $game
+    erb :play
+  end
+
   get '/attack' do
-    # @player_1 = $player_1.name
-    # @player_2 = $player_2.name
     @game = $game
     @game.attack(@game.player_2)
     erb :attack
