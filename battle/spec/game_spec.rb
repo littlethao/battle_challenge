@@ -2,8 +2,8 @@ require 'game'
 
 describe Game do
 subject (:game) {described_class.new(player1, player2)}
-let (:player1) { double :player1, receive_damage: true }
-let (:player2) { double :player2, receive_damage: true }
+let (:player1) { double :player1, receive_damage: true, lost_game?:false }
+let (:player2) { double :player2, receive_damage: true, lost_game?:false }
 
   describe '#attack' do
     it 'damages player 2 i.e. opponent' do
@@ -45,7 +45,6 @@ let (:player2) { double :player2, receive_damage: true }
   describe '#game_over?' do
     before do
       allow(player1).to receive(:lost_game?).and_return(true)
-      allow(player2).to receive(:lost_game?).and_return(false)
     end
     it 'to be true if either player has lost' do
       expect(game.game_over?).to eq true

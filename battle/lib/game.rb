@@ -19,8 +19,10 @@ attr_reader :current_player, :opponent
   end
 
   def attack
-    opponent.receive_damage
-    switch_turn
+    unless game_over?
+      opponent.receive_damage
+      switch_turn
+    end 
   end
 
   def switch_turn
