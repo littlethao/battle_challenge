@@ -11,4 +11,8 @@ class Player
     @hitpoint -= 10
   end
 
+  def lost_game?
+    @hitpoint == 0
+  end
+
 end

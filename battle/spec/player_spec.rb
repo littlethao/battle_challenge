@@ -20,4 +20,10 @@ subject (:thao) {described_class.new("Thao")}
     end
   end
 
+  describe '#lost_game?' do
+    it 'shows that player 2 has lost' do
+      10.times {matt.receive_damage}
+      expect(matt.lost_game?).to be true
+    end
+  end
 end

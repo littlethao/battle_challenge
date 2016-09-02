@@ -33,6 +33,7 @@ let (:player2) { double :player2, receive_damage: true }
     it 'initially opponent should be player 2' do
       expect(game.opponent).to eq player2
     end
+    
     context 'post attack' do
       it 'should have opponent as player 1' do
         game.attack
